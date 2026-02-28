@@ -7,6 +7,14 @@ define queen = Character("Queen", color="#c8ffc8")
 define police = Character("Ft. Lauderdale Police Station", color="#c8c8ff")
 define detective = Character("Detective", color="#ffc8c8")
 image detective room = im.Scale("detective room.jpeg", 1920, 1080)
+image shore = im.Scale("shore.jpeg", 1920, 1080)
+image deep = im.Scale("deep.jpeg", 1920, 1080)
+image entrance = im.Scale("entrance.jpeg", 1920, 1080)
+image deep = im.Scale("deep.jpeg", 1920, 1080)
+image underwater = im.Scale("underwater.jpeg", 1920, 1080)
+image newspaper = im.Scale("newspaper.jpeg", 1920, 1080)
+image anonymous = im.Scale("anonymous.jpeg", 1920, 1080)
+image photos = im.Scale("photos.jpeg", 1920, 1080)
 
 
 # The game starts here.
@@ -31,6 +39,7 @@ label start:
     with fade
 
     label choices: 
+        scene detective room
         menu: 
             "Document 1 - Police Newspaper Statement":
                 jump choices1
@@ -57,7 +66,7 @@ label start:
         jump choices
 
     label choices3: 
-        # scene photos
+        scene photos
         jump choices
     
 
