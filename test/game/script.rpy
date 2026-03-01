@@ -303,7 +303,7 @@ label kingdom:
 label finale:
 
     play music "chase idea 2.mp3" fadein 0.5
-    hide queen
+    hide jellyfish
     "(You try to flee and escape with evidence, but the Queen gains speed from the currents and stretches out its venomous tentacles.)"
     detective "(I need to make a move to survive.)"
     scene kingdom
