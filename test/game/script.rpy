@@ -49,9 +49,9 @@ image black = im.Scale("1920x1080-black-solid-color-background.jpg", 1920, 1080)
 
 # sprites
 image queen dark smile = im.Scale("queen dark smile.png", 960, 1080)
-image queen mad = im.Scale("queen angry hand up.png", 960, 1080)
-image queen happy = im.Scale("queen smile heart.png", 960, 1080)
-image queen shocked = im.Scale("queen gasp hand up.png", 960, 1080)
+image queen mad = im.Scale("queen sprites/queen angry hand up.png", 960, 1080)
+image queen happy = im.Scale("queen sprites/queen smile heart.png", 960, 1080)
+image queen shocked = im.Scale("queen sprites/queen gasp hand up.png", 960, 1080)
 image jellyfish = im.Scale("jellyfish.PNG", 960, 1080)
 image servant = im.Scale("servant neutral.PNG", 960, 1080)
 
@@ -212,7 +212,7 @@ label kingdom:
     with fade
 
     scene hallway
-    "(You pass through the kingdom's interior hallways, luxurious yet run-down… beautiful yet eerie… Until you notice horrendous.)"
+    "(You pass through the kingdom's interior hallways, luxurious yet run-down… beautiful yet eerie… Until you notice something horrendous.)"
     detective "Are those… human-shaped skulls? Displayed so arrogantly in plain view? If these are real, what kind of ludricrous beast could be hiding down here…"
     scene black 
     with fade
@@ -249,8 +249,9 @@ label kingdom:
     scene throne room two 
     show queen shocked
     queen "Just a moment, dear..."
-    "(The Queen momentarily leaves the room to check on the strange sound.)"
     hide queen
+    "(The Queen momentarily leaves the room to check on the strange sound.)"
+
     detective "I need to hurry and get out of here."
     "(You quickly investigate the room before the Queen can get back. After checking several rooms, there comes an unexpected character…)"
     scene black
