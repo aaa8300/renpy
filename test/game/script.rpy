@@ -1,5 +1,7 @@
 ﻿# The script of the game goes in this file.
 
+
+# settings
 define config.name = _('Case File: The Stinging Swindler')
 
 define gui.show_name = True
@@ -13,12 +15,8 @@ define gui.name_text_font = "OldNewspaperTypes.ttf"
 
 
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
 
-
-
-
+# characters
 define queen = Character("Queen", color="#dbe1ff")
 define police = Character("Ft. Lauderdale Police Station", color="#6c8cf4")
 define detective = Character("You (Detective)", color="#eb446e")
@@ -28,6 +26,7 @@ define child = Character("Bystander's Child", color="#ffeba9")
 define servant = Character("Human Servant", color="#5fdfff")
 
 
+# scenes
 image detective room = im.Scale("office - 2, 5.PNG", 1920, 1080)
 image shore = im.Scale("shoreline - 9.PNG", 1920, 1080)
 image deep = im.Scale("deep.jpeg", 1920, 1080)
@@ -47,12 +46,14 @@ image throne room = im.Scale("throne room queen 15.PNG", 1920, 1080)
 image throne room two = im.Scale("throne room no queen (after sprite shows up) 16.PNG", 1920, 1080)
 image hallway = im.Scale("hallway 17.PNG", 1920, 1080)
 image black = im.Scale("1920x1080-black-solid-color-background.jpg", 1920, 1080)
-image queen dark smile = im.Scale("queen dark smile.png", 1920, 1080)
-image queen mad = im.Scale("queen mad.jpeg", 1920, 1080)
-image queen happy = im.Scale("queen heart.jpeg", 1920, 1080)
-image queen shocked = im.Scale("queen shock.jpeg", 1920, 1080)
-image jellyfish = im.Scale("jellyfish.PNG", 1920, 1080)
-image servant = im.Scale("servant neutral.PNG", 1920, 1080)
+
+# sprites
+image queen dark smile = im.Scale("queen dark smile.png", 960, 1080)
+image queen mad = im.Scale("queen mad.jpeg", 960, 1080)
+image queen happy = im.Scale("queen heart.jpeg", 960, 1080)
+image queen shocked = im.Scale("queen shock.jpeg", 960, 1080)
+image jellyfish = im.Scale("jellyfish.PNG", 960, 1080)
+image servant = im.Scale("servant neutral.PNG", 960, 1080)
 
 
 
@@ -272,16 +273,15 @@ label kingdom:
                 show jellyfish
                 play sound "audio/electrocute_NOdcFrc.mp3"
                 "(The jellyfish underling kills you with its poisonous sting.)"
+                scene black 
                 with fade
-                scene black
                 "GAME OVER"
                 return
             "Fight the Suspicious 'Human'":
                 detective "Die, you quack!"
-                with fade
                 scene black
-                play sound "audio/Thud Sound Effect.mp3"
                 with fade
+                play sound "audio/Thud Sound Effect.mp3"
                 show jellyfish
                 detective "What..?!"
                 show queen mad
@@ -295,9 +295,6 @@ label kingdom:
 label finale:
 
     play music "chase idea 2.mp3" fadein 0.5
-    scene throne room
-    scene hallway
-    scene kingdom
 
     "(You try to flee and escape with evidence, but the Queen gains speed from the currents and stretches out its venomous tentacles.)"
     detective "(I need to make a move to survive.)"
