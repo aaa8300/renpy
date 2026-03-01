@@ -8,6 +8,9 @@ define config.version = "1.0"
 
 define gui.about = _("Created for Campfire Miami 2026.\n\nCode in Ren'py written by Ana Albornoz.\n\nArt drawn by Hannah Chang. Storyline written by Cing Cin")
 
+define gui.text_font = "OldNewspaperTypes.ttf"
+define gui.name_text_font = "OldNewspaperTypes.ttf"
+
 
 
 
@@ -47,10 +50,6 @@ image deep = im.Scale("inside cave - 13.PNG", 1920, 1080)
 # The game starts here.
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
 
     # PREMISE
     scene newsroom
@@ -217,7 +216,7 @@ label kingdom:
     # PART 3: DEEP DIVE
     with fade
     # scene black
-    # sound crash
+    play sound "audio/Crash.mp3"
     # scene throne room
     queen "Just a moment, dear..."
     "(The Queen momentarily leaves the room to check on the strange sound.)"
@@ -225,7 +224,7 @@ label kingdom:
     "(You quickly investigate the room before the Queen can get back. After checking several rooms, there comes an unexpected character…)"
     with fade
     # scene black
-    # sound crash 
+    play sound "audio/Crash.mp3"
     with fade
     # scene servant
     detective "What the... wait-- a human?!"
@@ -239,10 +238,10 @@ label kingdom:
                 detective "Come with me."
                 with fade
                 # scene black
-                # sound rip
+                play sound "audio/paper-tear-sound-effect.mp3"
                 "(You grab hold of the servant's hand, but it tears away the disguise, revealing what's underneath…)"
                 # scene jellyfish
-                # sound buzz
+                play sound "audio/electrocute_NOdcFrc.mp3"
                 "(The jellyfish underling kills you with its poisonous sting.)"
                 with fade
                 # scene black
@@ -252,7 +251,7 @@ label kingdom:
                 detective "Die, you quack!"
                 with fade
                 # scene black
-                # sound bang
+                play sound "audio/Thud Sound Effect.mp3"
                 with fade
                 # scene jellyfish
                 detective "What..?!"
