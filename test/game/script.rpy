@@ -49,9 +49,9 @@ image black = im.Scale("1920x1080-black-solid-color-background.jpg", 1920, 1080)
 
 # sprites
 image queen dark smile = im.Scale("queen dark smile.png", 960, 1080)
-image queen mad = im.Scale("queen mad.jpeg", 960, 1080)
-image queen happy = im.Scale("queen heart.jpeg", 960, 1080)
-image queen shocked = im.Scale("queen shock.jpeg", 960, 1080)
+image queen mad = im.Scale("queen angry hand up.png", 960, 1080)
+image queen happy = im.Scale("queen smile heart.png", 960, 1080)
+image queen shocked = im.Scale("queen gasp hand up.png", 960, 1080)
 image jellyfish = im.Scale("jellyfish.PNG", 960, 1080)
 image servant = im.Scale("servant neutral.PNG", 960, 1080)
 
@@ -185,6 +185,7 @@ label next:
         menu:
             "Option 1 - Place Salt on Altar":
                 play music "music idea 2.wav" fadein 2.0
+                play sound "audio/crumble.mp3"
                 "(The entire cave shakes. The wall breaks open and reveals more ocean beyond.)"
                 with fade
                 jump kingdom
@@ -245,15 +246,17 @@ label kingdom:
     # PART 4: DEEP DIVE
 
     # with fade
-    scene throne room
+    scene throne room two 
+    show queen shocked
     queen "Just a moment, dear..."
     "(The Queen momentarily leaves the room to check on the strange sound.)"
-    scene throne room two
+    hide queen
     detective "I need to hurry and get out of here."
     "(You quickly investigate the room before the Queen can get back. After checking several rooms, there comes an unexpected character…)"
     scene black
     play sound "audio/thud-ouch.mp3"
     with fade
+    scene hallway
     show servant
     detective "What the... wait-- a human?!"
     "Human Servant" "..."
@@ -270,18 +273,22 @@ label kingdom:
                 with fade
                 play sound "audio/paper-tear-sound-effect.mp3"
                 "(You grab hold of the servant's hand, but it tears away the disguise, revealing what's underneath…)"
+                scene hallway
                 show jellyfish
                 play sound "audio/electrocute_NOdcFrc.mp3"
                 "(The jellyfish underling kills you with its poisonous sting.)"
-                scene black 
+                scene black
                 with fade
                 "GAME OVER"
                 return
             "Fight the Suspicious 'Human'":
                 detective "Die, you quack!"
+                
+                play sound "audio/Thud Sound Effect.mp3"
                 scene black
                 with fade
-                play sound "audio/Thud Sound Effect.mp3"
+
+                scene hallway
                 show jellyfish
                 detective "What..?!"
                 show queen mad
@@ -295,9 +302,10 @@ label kingdom:
 label finale:
 
     play music "chase idea 2.mp3" fadein 0.5
-
+    hide queen
     "(You try to flee and escape with evidence, but the Queen gains speed from the currents and stretches out its venomous tentacles.)"
     detective "(I need to make a move to survive.)"
+    scene kingdom
     "(As you approach the exit, you spot the salt you placed on the altar.)"
 
 
@@ -305,17 +313,18 @@ label finale:
         menu:
             "Do Not Throw Salt":
                 stop music fadeout 2.0
-                "(You get caught up by all the jellyfishes, get stinged to death, and brutally eaten by the Queen.)"
-                with fade
+                play sound "audio/electrocute_NOdcFrc.mp3"
                 scene black
+                with fade
+                "(You get caught up by all the jellyfishes, get stinged to death, and brutally eaten by the Queen.)"
                 detective "(Stacy...)"
                 "GAME OVER"
                 return
             "Do Throw Salt":
                 stop music fadeout 2.0
                 "(The salt temporarily stops the Queen and you escape the cave…)"
-                with fade
                 scene black
+                with fade
                 "Humans..."
                 "..."
                 "(Success!! You escaped in one piece... for now.)"
